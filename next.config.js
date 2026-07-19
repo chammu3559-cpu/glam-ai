@@ -1,23 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
+    domains: [
+      'images.unsplash.com',
+      'via.placeholder.com',
+      'firebasestorage.googleapis.com',
     ],
   },
-  webpack: (config, { isServer }) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      path: false,
-      crypto: false,
-    };
-    return config;
-  },
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 module.exports = nextConfig;
